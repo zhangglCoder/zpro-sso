@@ -20,7 +20,7 @@ public class JwtTokenProcessor {
     Key key = MacProvider.generateKey();
 
     public String generrateToken(){
-        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String,Object> map = new HashMap<>();
         map.put("userId", UUID.randomUUID().toString());
         return Jwts.builder()
                 .setSubject("Joe")
@@ -35,25 +35,11 @@ public class JwtTokenProcessor {
         Jws<Claims> parseClaimsJws = null;
         try {
             parseClaimsJws = Jwts.parser().setSigningKey(key).parseClaimsJws(generrateToken());
-            //OK, we can trust this JWT
 
         } catch (Exception e) {
             e.printStackTrace();
-            //don't trust the JWT!
         }
 
         return parseClaimsJws;
-    }
-
-    public static void main(String[] args) {
-        JwtTokenProcessor jwtTokenProcessor = new JwtTokenProcessor();
-        String token = jwtTokenProcessor.generrateToken();
-        System.out.println(token);
-
-
-        Jws<Claims> claimsJws = jwtTokenProcessor.parser();
-
-
-
     }
 }

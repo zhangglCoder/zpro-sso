@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author zhanggl
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"cn.zpro.sso"})
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

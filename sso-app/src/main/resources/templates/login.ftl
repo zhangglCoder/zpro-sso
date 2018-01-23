@@ -9,7 +9,7 @@
 <center>
 <h1>SSO-登录认证中心</h1>
 
-<form action="/login" method="post">
+<form action="/sso/login" method="post">
     <table>
         <tr>
             <td>用户名称</td>
