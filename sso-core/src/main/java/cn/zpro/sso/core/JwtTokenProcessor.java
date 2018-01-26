@@ -26,6 +26,7 @@ public class JwtTokenProcessor {
                 .setSubject("Joe")
                 .setClaims(map)
                 .signWith(SignatureAlgorithm.HS512, key)
+                //.setExpiration() 设置超时时间
                 .compact();
 
     }
