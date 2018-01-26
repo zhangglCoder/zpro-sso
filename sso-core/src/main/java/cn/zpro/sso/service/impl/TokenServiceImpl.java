@@ -17,9 +17,9 @@ public class TokenServiceImpl implements TokenService {
     public AuthenticateInfo findAuthenticateInfoByToken(String token) {
         JwtTokenProcessor processor = new JwtTokenProcessor();
         Jws<Claims> parser = processor.parser();
-        String signature = parser.getSignature();
+        Object userId = parser.getBody().get("userId");
         AuthenticateInfo info = new AuthenticateInfo();
-        info.setUserId(signature);
+        info.setUserId(userId.toString());
         return info;
     }
 

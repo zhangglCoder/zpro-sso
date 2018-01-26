@@ -21,7 +21,7 @@ public class JwtTokenProcessor {
 
     public String generrateToken(){
         Map<String,Object> map = new HashMap<>();
-        map.put("userId", UUID.randomUUID().toString());
+        map.put("userId", "userZ00001");
         return Jwts.builder()
                 .setSubject("Joe")
                 .setClaims(map)

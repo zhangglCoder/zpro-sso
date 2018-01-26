@@ -5,6 +5,6 @@
     <title>info页面</title>
 </head>
 <body>
-info页面
+info页面 ${userId}
 </body>
 </html>

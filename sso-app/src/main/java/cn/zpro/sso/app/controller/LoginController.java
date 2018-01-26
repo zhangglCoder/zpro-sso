@@ -1,7 +1,9 @@
 package cn.zpro.sso.app.controller;
 
 import cn.zpro.sso.app.dto.ResponseMsg;
+import cn.zpro.sso.app.interceptor.MyInterceptor;
 import cn.zpro.sso.app.vo.UserVo;
+import cn.zpro.sso.core.AuthenticateInfo;
 import cn.zpro.sso.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +39,9 @@ public class LoginController {
     @GetMapping("info")
     public ModelAndView info(){
         ModelAndView view = new ModelAndView();
+        String token = MyInterceptor.token;
+        AuthenticateInfo authenticateInfoByToken = tokenService.findAuthenticateInfoByToken(token);
+        view.addObject("userId",authenticateInfoByToken.getUserId());
         view.setViewName("info");
         return view;
     }
